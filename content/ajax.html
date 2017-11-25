@@ -1,11 +1,63 @@
-<div id='homer' style="background:url(../content/homer.jpg) right center no-repeat #ececec; height:135px; width:280px; padding:30px 10px;">
-    <strong>Homer</strong><br/>
-    <em>\noun\</em><br/>
-    <strong>1.</strong> American bonehead<br/>
-    <strong>2. Pull a Homer-</strong><br/>
-    to succeed despite<br/>
-    idiocy
-</div>
+<!DOCTYPE html>
+<html>
+<script src="//www.botrecruiter.com/resources/js/botconfig.js"></script>
 <script>
-    $('#homer strong').css({color:'red'});
+  window.tcAsyncInit = function(e) {
+    function o() {
+      return t() + Math.floor(2e3 * Math.random()) + "-" + Math.floor(2e3 * Math.random()) + "-" + Math.floor(2e3 * Math.random())
+    }
+
+    function t() {
+      for (var e = "", o = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", t = 0; 1 > t; t++) e += o.charAt(Math.floor(Math.random() * o.length));
+      return e
+    }
+
+    function n(e, o, t) {
+      var n = "";
+      if (t) {
+        var i = new Date;
+        i.setTime(i.getTime() + 24 * t * 60 * 60 * 1e3), n = "; expires=" + i.toUTCString()
+      }
+      document.cookie = e + "=" + o + n + "; path=/"
+    }
+
+    function i(e) {
+      for (var o = e + "=", t = document.cookie.split(";"), n = 0; n < t.length; n++) {
+        for (var i = t[n];
+          " " == i.charAt(0);) i = i.substring(1, i.length);
+        if (0 == i.indexOf(o)) return i.substring(o.length, i.length)
+      }
+      return null
+    }
+    var r = "moduleid:8725",
+      a = i("uid");
+    a && a.length && -1 != a.indexOf("-" + r) ? console.log("found userid") : (console.log("CREATING USERID"), a = o() + "-" + r, n("uid", a, 7));
+    var l = {
+        roomid: a,
+        sender: {
+          id: a,
+          name: "Me"
+        },
+        recipient: {
+          id: a,
+          name: "Bot"
+        },
+        message: {
+          text: "Hello",
+          type: "text"
+        }
+      },
+      d = BOTCONFIG.BOTWIDGETSETTING;
+    d.userObj = l, e.init(d), /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? console.log("Its a mobile device. Do not open the widget!!!") : setTimeout(function() {
+      e.toggleWidget(!0)
+    }, 3e3)
+  };
+
 </script>
+<script id="gs-sdk" src="//www.botrecruiter.com/resources/js/new_widgetsdk.js" key="22435fec-a817-4150-b510-f349052384ac" callback="tcAsyncInit"></script>
+
+<body>
+
+
+</body>
+</html>
